@@ -1,0 +1,43 @@
+---
+title: "Parasitos en aves antarticas"
+author: "Alejandro Buren (CONICET-IAA)"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+# bibliography: hgams.bib   ## bibliographic library. Place in same folder as .Rmd
+theme: jekyll-theme-slate
+output:
+  html_document:
+  collapsed: no
+  fig_caption: yes
+  highlight: tango
+  number_sections: yes
+  smooth_scroll: yes
+  theme: spacelab
+  toc: yes
+  toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+options(scipen = 999)
+options(warn = -1)
+
+source(paste0(here::here(), "/analysis/1_ReadData_Plot.R"))
+```
+
+Este es un proyecto liderado por el Dr. Bruno Fusaro (IAA).
+
+Los analisis se encuentran en [**este repositorio**](https://github.com/adbpatagonia/Parasitos_AvesAntarticas).
+
+El repositorio no contiene los datos.\
+Para poder replicar los analisis hay que copiar el archivo `Base_Helmintos_Aves_Antarticas.xlsx` en la carpeta `data`.
+
+Primer borrador de mirada de los datos
+
+# Mapa de distribucion de parasitos en la Peninsula Antartica
+
+Mapa de la Peninsula Antartica (exclui registros fuera de la peninsula), donde la especie de parasito es representada por color de los puntos, y la prevalencia como tamaño de los puntos. Nótese que varios de los puntos se superponen
+
+```{r map, fig.width  = 9, fig.height = 9, echo=FALSE, message=FALSE, warning=FALSE}
+p.par.ant + theme(legend.position = 'bottom')
+```

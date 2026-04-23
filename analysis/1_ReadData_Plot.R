@@ -1,15 +1,14 @@
-source("analysis/ST_0_LoadPackages.R")
-
+# setup script ----
+source(paste0(here::here(), "/analysis/ST_0_LoadPackages.R"))
 
 
 # read data -----
 ## map ----
-antartida  <-  st_read("data/map/ADD_Coastline_medium_res_polygon.shp", quiet = TRUE)
-# antartida  <-  st_read("data/map/ADD_Coastline_high_res_line_Sliced.shp", quiet = TRUE)
+antartida  <-  st_read(paste0(here::here(), "/data/map/ADD_Coastline_medium_res_polygon.shp"), quiet = TRUE)
 
 ## parasitos -----
 
-parasitos <- openxlsx::read.xlsx(xlsxFile = "data/Base_Helmintos_Aves_Antarticas.xlsx",
+parasitos <- openxlsx::read.xlsx(xlsxFile = paste0(here::here(), "/data/Base_Helmintos_Aves_Antarticas.xlsx"),
                                  sheet = 'Registros') %>%
   data.table()
 
@@ -157,5 +156,5 @@ p.par.ant <- ggplot() +
 
 
 # output ----
-ggsave(plot = p.par.ant, filename = "output/Mapa.png",
+ggsave(plot = p.par.ant, filename = paste0(here::here(), "/output/Mapa.png"),
        width = 13, height =8)
